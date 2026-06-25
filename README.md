@@ -10,9 +10,9 @@ Our goal is to build an innovative financial technology solution that solves a r
 - Amy Felix
 - Nicoroy Zwane
 - Nina Meyer
-- Azrah 
-- Zaakirah
-- Bonolo
+- Azrah Parker
+- Zaakirah Levy
+- Bonolo Masela
 
 ---
 
