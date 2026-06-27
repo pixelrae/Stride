@@ -1,11 +1,8 @@
-# FinTech Hackathon 2026
+# Stride - FinTech x Interledger Hackathon 2026
 
-## Team
+### Team Name: Common Cents
 
-**Project:** Stride
-
-### Team Members
-
+**Team Members:**
 - Amy Felix
 - Nicoroy Zwane
 - Nina Meyer
@@ -15,32 +12,25 @@
 
 ---
 
-# Project Overview
+## Problem Statement
 
-Stride is a financial inclusion platform designed for informal workers across Southern Africa. It enables workers to receive secure digital payments, automatically generate proof of income, manage transparent digital stokvels, and send affordable cross-border remittances.
-
-Built on the Interledger Open Payments standard, Stride provides users with a portable financial identity without requiring a traditional bank account.
-
----
-
-# Problem Statement
-
-Millions of informal workers are paid in cash, leaving them without verifiable proof of income. This limits access to housing, credit, and financial services while manual stokvels and expensive cross-border remittance services expose users to fraud, poor transparency, and high transaction costs.
+Millions of informal workers are paid in cash, leaving them without verifiable proof of income. This limits access to housing, credit, and financial services while manual cash transactions expose users to no proof of income and financial identity, poor transparency, and high transaction costs.
 
 ---
 
 # Our Solution
 
-Stride combines four financial services into a single platform:
+Stride is a financial inclusion platform designed for informal workers across Southern Africa. It enables workers to receive secure digital payments, automatically generate proof of income.
 
-- **Digital Payslips** – Every completed payment automatically becomes verifiable proof of income.
-- **Worker Profiles** – Workers can share a digital job card and payment QR code with employers.
-- **Digital Stokvels** – Contributions and payouts are securely recorded with complete transparency.
-- **Cross-Border Remittances** – Affordable money transfers between South Africa and neighbouring SADC countries.
+The payslip feature turns OpenRemit's existing transaction record into a verifiable proof of income for informal workers. When a worker receives a payment through Stride, that completed transaction becomes a digital payslip — showing employer name, worker name, amount, date, work description, and a unique transaction ID anchored to the Open Payments record.
+
+The worker accesses this from their income history view, which works like the payments section of a banking app: a filterable list of received payments, from which any individual transaction can be rendered as a formal payslip.
+
+Built on the Interledger Open Payments standard, Stride provides users with a portable financial identity without requiring a traditional bank account.
 
 ---
 
-# Open Payments Integration
+## Open Payments Integration
 
 Stride is built on top of **OpenRemit**, an open-source reference implementation of the Open Payments specification using the **@interledger/open-payments SDK**.
 
@@ -48,8 +38,6 @@ Rather than replacing OpenRemit's payment infrastructure, Stride extends it by a
 
 - Automatic digital payslips generated from payment history.
 - Worker profiles and payment requests.
-- Digital stokvel management.
-- A simplified remittance experience designed for informal workers.
 
 ## Open Payments Flow
 
@@ -62,27 +50,9 @@ Every payment within Stride follows the same Open Payments workflow:
 5. OpenRemit creates the outgoing payment and transfers the funds.
 6. Both parties receive an immutable transaction record.
 
-This payment flow powers:
-
-- Employer to worker payments
-- Digital payslip generation
-- Stokvel contributions
-- Stokvel payouts
-- Cross-border remittances
-
 ---
 
-# Tech Stack
-
-## Frontend
-
-- React
-- JSX
-- Vite
-- CSS3
-- JavaScript (ES6+)
-
-## Backend
+## Tech Stack & Backend
 
 - Node.js
 - OpenRemit
@@ -102,27 +72,12 @@ This payment flow powers:
 
 ---
 
-# Repository Structure
-
-```text
-.
-├── frontend/
-├── backend/
-├── assets/
-├── docs/
-└── README.md
-```
-
----
-
 # Current Features
 
 - Digital wallet interface
 - QR code payment requests
 - Automatic digital payslips
 - Digital worker profiles
-- Transparent stokvel management
-- Cross-border remittances
 
 ---
 
