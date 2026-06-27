@@ -179,6 +179,12 @@ cp .env.example .env
 ```
 
 Edit `backend/.env`:
+> **Getting your credentials:**
+> 1. Create a free account at https://wallet.interledger-test.dev
+> 2. Create a wallet address
+> 3. Go to Settings → Developer Keys → Generate public & private key
+> 4. A `.key` file will download — place it inside `stride-backend/backend/`
+> 5. Copy the Key ID and your wallet address URL into `.env`
 
 ```env
 PORT=3001
@@ -247,7 +253,7 @@ http://localhost:5173
 
 ## Demo Accounts
 
-You can create demo accounts through the signup page or via PowerShell:
+You can create demo accounts via PowerShell/terminal:
 
 ```powershell
 # Worker account
@@ -266,10 +272,34 @@ Invoke-WebRequest `
 ```
 
 ---
+## Setting Wallet Addresses
+
+After creating accounts, each user needs their Interledger wallet address linked to their profile.
+
+Run these commands, replacing the wallet addresses with your own:
+
+**Worker account:**
+```powershell
+$r = Invoke-WebRequest -Uri "http://localhost:3001/api/auth/login" -Method POST -ContentType "application/json" -Body '{"email":"nomsa@stride.com","password":"password123"}' -UseBasicParsing
+$token = ($r.Content | ConvertFrom-Json).token
+Invoke-WebRequest -Uri "http://localhost:3001/api/auth/me" -Method PATCH -ContentType "application/json" -Headers @{Authorization="Bearer $token"} -Body '{"walletAddress":"https://ilp.interledger-test.dev/YOUR_WORKER_HANDLE"}' -UseBasicParsing
+```
+
+**Employer account:**
+```powershell
+$r = Invoke-WebRequest -Uri "http://localhost:3001/api/auth/login" -Method POST -ContentType "application/json" -Body '{"email":"employer@stride.com","password":"password123"}' -UseBasicParsing
+$token = ($r.Content | ConvertFrom-Json).token
+Invoke-WebRequest -Uri "http://localhost:3001/api/auth/me" -Method PATCH -ContentType "application/json" -Headers @{Authorization="Bearer $token"} -Body '{"walletAddress":"https://ilp.interledger-test.dev/YOUR_EMPLOYER_HANDLE"}' -UseBasicParsing
+```
+
+> Both commands should return StatusCode 200 with the wallet address confirmed in the response.
 
 ## Demo Flow
 
 ### 1. Worker Generates QR Code
+> **Before the demo:** Log in as Nomsa, go to **My QR Code**, and click 
+> **Generate My QR Code**. This creates her payment page at 
+> `http://localhost:3001/pay/nomsa-dlamini`.
 
 1. Log in as **Nomsa**
 2. Navigate to **My QR Code**
@@ -311,25 +341,76 @@ http://localhost:3001/pay/nomsa-dlamini
 
 ---
 
-## Using QR Codes on Real Devices
+## Using QR Codes on Real Devices (ngrok)
 
-Expose the backend using ngrok:
+To scan Nomsa's QR code with a real phone, you need to expose your local
+backend to the internet using ngrok.
+
+### Step 1 — Install ngrok
+
+Download ngrok from the Microsoft Store or from https://ngrok.com/download
+
+### Step 2 — Create a free ngrok account
+
+Sign up at https://ngrok.com and get your auth token from:
+https://dashboard.ngrok.com/get-started/your-authtoken
+
+### Step 3 — Add your auth token
+
+```bash
+ngrok config add-authtoken YOUR_TOKEN_HERE
+```
+
+### Step 4 — Start the tunnel
 
 ```bash
 ngrok http 3001
 ```
 
-Update `backend/.env`:
+You will see output like:
 
-```env
+```
+Forwarding  https://abc123.ngrok-free.app -> http://localhost:3001
+```
+
+Copy the `https://` URL.
+
+### Step 5 — Update your environment
+
+Open `stride-backend/backend/.env` and update:
+
+```
 BACKEND_URL=https://abc123.ngrok-free.app
 ```
 
-Restart the backend and regenerate the QR code.
+### Step 6 — Restart the backend
 
-> **Note:** Free ngrok URLs change after every restart, so QR codes must be regenerated.
+Stop the backend with Ctrl+C and restart:
 
----
+```bash
+npm run dev
+```
+
+### Step 7 — Regenerate the QR code
+
+Log in as Nomsa, go to **My QR Code**, and click **Regenerate**. The QR
+now encodes the public ngrok URL.
+
+### Step 8 — Scan with your phone
+
+Point any smartphone camera at the QR code. Your browser will open the
+Stride payment page. Enter your wallet address, amount, and work
+description, then click **Pay Now** and approve at the test wallet.
+
+After approval your phone will show a payment confirmation screen.
+Nomsa's income history updates automatically.
+
+> **Important:** Free ngrok gives a new URL every time you restart the
+> tunnel. You must update `BACKEND_URL` in `.env` and regenerate the QR
+> code each time.
+
+> Start ngrok first, update `.env`, restart the backend,
+> then regenerate the QR before the presentation begins.
 
 ## API Endpoints
 
