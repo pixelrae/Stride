@@ -4,6 +4,8 @@
 > Built on the **Interledger Protocol (ILP)** and **Open Payments**.
 > Developed for the **UCT × Interledger Fintech Hackathon 2026**.
 
+---
+
 ### Team Name: Common Cents
 
 **Team Members:**
@@ -18,14 +20,13 @@
 
 ## Overview
 
-Stride enables domestic workers, day labourers, and gig workers to:
+Stride is a financial inclusion platform built for the UCT × Interledger Fintech Hackathon 2026 by Team Common Cents. It uses the Interledger Open Payments standard, which enables applications to interact directly with users’ wallets and move payments across providers through a shared standard.
 
-* Receive secure digital payments
-* Automatically generate verifiable proof of income
-* Build a portable financial history
-* Access loans, housing, and financial services without requiring a traditional bank account
+The project strives to solve a problem in South Africa: many informal workers are paid in cash and have no verifiable income history, which makes it harder to prove earnings and access housing, credit, and basic financial services. Stride addresses this by turning each digital payment into a verifiable payslip and a portable record of income, creating a financial history that workers can use to prove what they earn.
 
-Every user receives an Interledger wallet address that works across banks, mobile money providers, and digital wallets.
+Its impact goes beyond the hackathon use case. By giving informal workers a trusted record of payment, Stride can help workers move toward formal financial access, while also creating value for employers, lenders, landlords, and institutions that need reliable proof of income.
+
+Every user must have an Interledger wallet address.
 
 ---
 
@@ -33,13 +34,13 @@ Every user receives an Interledger wallet address that works across banks, mobil
 
 In South Africa, **5.7 million people were in informal employment in Q4:2025**, while the informal sector accounted for **21.4% of all jobs**. In addition, **1.9 million South Africans were running non-VAT registered businesses in 2023**. Many of these workers are paid in cash with no verifiable record of income, which makes it difficult to prove earnings.
 
-Without proof of income, workers are often locked out of housing, credit, and basic financial services. The informal economy remains essential to South Africa’s livelihoods, yet the people driving it are still financially invisible because their earnings rarely leave a formal paper trail.
-
 Without verifiable income records or payslips, they often cannot:
 
 - Rent formal housing.
 - Qualify for loans or credit.
 - Access basic financial services.
+  
+The informal economy remains essential to South Africa’s livelihoods, yet the people driving it are still financially invisible because their earnings rarely leave a formal paper trail.
 
 ---
 
@@ -52,6 +53,10 @@ Stride combines three core tools into one platform.
 | **Digital Payslips** | Every completed payment automatically becomes verifiable proof of income                    |
 | **QR Payments**      | Workers generate a QR code that employers can scan and pay without needing a Stride account |
 | **Income Reports**   | Signed PDF reports of received payments that can be verified        |
+
+The worker registers for Stride once, links their Open Payments wallet address, and can generate a QR code. They share that QR with any employer as their "payment card". Every payment they receive automatically becomes a payslip in their Stride dashboard, that they can download as a pdf.
+
+The employer scans the worker's QR code, which opens a public payment page in their browser. They enter their own wallet address and the amount, then approve the transfer through their bank's normal consent screen. 
 
 ---
 
