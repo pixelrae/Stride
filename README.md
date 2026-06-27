@@ -253,23 +253,43 @@ http://localhost:5173
 
 ## Demo Accounts
 
-You can create demo accounts via PowerShell/terminal:
+You need two accounts to demo Stride — one for the worker (Nomsa) and one
+for the employer (Sarah). Create them by running the commands below in
+PowerShell, one at a time.
+
+> **Before running these:** Make sure the backend is running on
+> http://localhost:3001
+
+### Create the worker account
+
+Copy and paste this entire block into PowerShell and press Enter:
 
 ```powershell
-# Worker account
-Invoke-WebRequest `
-  -Uri "http://localhost:3001/api/auth/signup" `
-  -Method POST `
-  -ContentType "application/json" `
-  -Body '{"email":"nomsa@stride.com","password":"password123","displayName":"Nomsa Dlamini"}'
-
-# Employer account
-Invoke-WebRequest `
-  -Uri "http://localhost:3001/api/auth/signup" `
-  -Method POST `
-  -ContentType "application/json" `
-  -Body '{"email":"employer@stride.com","password":"password123","displayName":"Sarah Johnson"}'
+Invoke-WebRequest -Uri "http://localhost:3001/api/auth/signup" -Method POST -ContentType "application/json" -Body '{"email":"nomsa@stride.com","password":"password123","displayName":"Nomsa Dlamini"}' -UseBasicParsing
 ```
+
+You should see `StatusCode: 201` in the response. That means it worked.
+
+### Create the employer account
+
+Copy and paste this entire block into PowerShell and press Enter:
+
+```powershell
+Invoke-WebRequest -Uri "http://localhost:3001/api/auth/signup" -Method POST -ContentType "application/json" -Body '{"email":"employer@stride.com","password":"password123","displayName":"Sarah Johnson"}' -UseBasicParsing
+```
+
+You should see `StatusCode: 201` in the response.
+
+### Account credentials
+
+| Account | Email | Password |
+|---|---|---|
+| Worker | nomsa@stride.com | password123 |
+| Employer | employer@stride.com | password123 |
+
+> **Note:** You can also create accounts directly through the app at
+> http://localhost:5173/signup — but you will still need to set the
+> wallet address manually using the commands in the next section.
 
 ---
 ## Setting Wallet Addresses
