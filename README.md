@@ -4,6 +4,16 @@
 > Built on the **Interledger Protocol (ILP)** and **Open Payments**.
 > Developed for the **UCT × Interledger Fintech Hackathon 2026**.
 
+### Team Name: Common Cents
+
+**Team Members:**
+- Amy Felix
+- Nicoroy Zwane
+- Nina Meyer
+- Azrah Parker
+- Zaakirah Levy
+- Bonolo masela
+
 ---
 
 ## Overview
@@ -19,23 +29,21 @@ Every user receives an Interledger wallet address that works across banks, mobil
 
 ---
 
-## The Problem
+## Problem Statement
 
-Millions of informal workers in South Africa are paid in cash. Without verifiable income records or payslips, they often cannot:
+In South Africa, **5.7 million people were in informal employment in Q4:2025**, while the informal sector accounted for **21.4% of all jobs**. In addition, **1.9 million South Africans were running non-VAT registered businesses in 2023**. Many of these workers are paid in cash with no verifiable record of income, which makes it difficult to prove earnings.
 
-* Rent formal housing
-* Qualify for loans or credit
-* Access basic financial services
+Without proof of income, workers are often locked out of housing, credit, and basic financial services. The informal economy remains essential to South Africa’s livelihoods, yet the people driving it are still financially invisible because their earnings rarely leave a formal paper trail.
 
-In addition, manual stokvels and expensive remittance services expose workers to:
+Without verifiable income records or payslips, they often cannot:
 
-* Fraud
-* Poor transparency
-* High transaction costs
+- Rent formal housing.
+- Qualify for loans or credit.
+- Access basic financial services.
 
 ---
 
-## The Solution
+## Our Solution
 
 Stride combines three core tools into one platform.
 
@@ -43,7 +51,7 @@ Stride combines three core tools into one platform.
 | -------------------- | ------------------------------------------------------------------------------------------- |
 | **Digital Payslips** | Every completed payment automatically becomes verifiable proof of income                    |
 | **QR Payments**      | Workers generate a QR code that employers can scan and pay without needing a Stride account |
-| **Income Reports**   | Signed PDF reports of received payments that can be verified by lenders and landlords       |
+| **Income Reports**   | Signed PDF reports of received payments that can be verified        |
 
 ---
 
